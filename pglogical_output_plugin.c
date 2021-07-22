@@ -188,7 +188,7 @@ pg_decode_startup(LogicalDecodingContext * ctx, OutputPluginOptions *opt,
 	{
 		int		params_format;
 		bool	started_tx = false;
-		PGLogicalLocalNode *node;
+		// PGLogicalLocalNode *node;
 		MemoryContext oldctx;
 
 		/*
@@ -207,8 +207,8 @@ pg_decode_startup(LogicalDecodingContext * ctx, OutputPluginOptions *opt,
 			StartTransactionCommand();
 			started_tx = true;
 		}
-		node = get_local_node(false, false);
-		data->local_node_id	= node->node->id;
+		// node = get_local_node(false, false);
+		// data->local_node_id	= node->node->id;
 
 		 /*
 		 * Ideally we'd send the startup message immediately. That way
@@ -663,8 +663,8 @@ pg_decode_change(LogicalDecodingContext *ctx, ReorderBufferTXN *txn,
 	old = MemoryContextSwitchTo(data->context);
 
 	/* First check the table filter */
-	if (!pglogical_change_filter(data, relation, change, &att_list))
-		return;
+	// if (!pglogical_change_filter(data, relation, change, &att_list))
+	// 	return;
 
 	/*
 	 * If the protocol wants to write relation information and the client
